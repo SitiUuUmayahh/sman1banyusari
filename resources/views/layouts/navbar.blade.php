@@ -13,9 +13,12 @@
 
             <div class="hidden items-center gap-2 md:flex">
                 <a href="{{ route('home') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Beranda</a>
-                <a href="{{ route('school.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Sekolah</a>
-                <a href="{{ route('admin.dashboard') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Admin</a>
-                <a href="{{ route('absensi.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Absensi</a>
+                <a href="{{ route('school.profile') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Profil</a>
+                <a href="{{ route('news.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Berita</a>
+                <a href="{{ route('ppdb.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">PPDB</a>
+                <a href="{{ route('gallery.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Galeri</a>
+                <a href="{{ route('achievement.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Prestasi</a>
+                <a href="{{ route('contact.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Kontak</a>
             </div>
 
             <div class="hidden items-center gap-3 md:flex">
@@ -42,9 +45,12 @@
         <div x-show="open" x-transition x-cloak class="border-t border-slate-200 bg-white py-3 md:hidden">
             <div class="flex flex-col gap-1">
                 <a href="{{ route('home') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Beranda</a>
-                <a href="{{ route('school.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Sekolah</a>
-                <a href="{{ route('admin.dashboard') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Admin</a>
-                <a href="{{ route('absensi.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Absensi</a>
+                <a href="{{ route('school.profile') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Profil</a>
+                <a href="{{ route('news.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Berita</a>
+                <a href="{{ route('ppdb.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">PPDB</a>
+                <a href="{{ route('gallery.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Galeri</a>
+                <a href="{{ route('achievement.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Prestasi</a>
+                <a href="{{ route('contact.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Kontak</a>
                 <div class="mt-2 grid grid-cols-2 gap-2 border-t border-slate-200 pt-3">
                     <a href="{{ route('login') }}" class="rounded-lg border border-slate-200 px-3 py-2 text-center text-sm font-semibold text-slate-700">Masuk</a>
                     <a href="{{ route('register') }}" class="rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white">Daftar</a>
