@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Permission\Traits\HasRoles;
 
-class AdminUser extends Model
+class AdminUser extends Authenticatable
 {
+    use HasRoles;
+
     protected $table = 'admin_user';
 
     public $timestamps = false;
@@ -14,13 +17,17 @@ class AdminUser extends Model
     protected $fillable = [
         'nama',
         'username',
+        'email',
         'password',
         'role',
     ];
 
     protected $hidden = [
         'password',
+        'remember_token',
     ];
+
+    protected $guard_name = 'web';
 
     public function beritas(): HasMany
     {

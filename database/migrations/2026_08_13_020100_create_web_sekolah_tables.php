@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('username')->unique();
+            $table->string('email')->unique();
             $table->string('password');
             $table->enum('role', ['superadmin', 'editor']);
+            $table->rememberToken();
         });
 
         Schema::create('berita', function (Blueprint $table) {
