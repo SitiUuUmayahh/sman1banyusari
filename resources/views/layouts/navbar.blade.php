@@ -22,8 +22,7 @@
             </div>
 
             <div class="hidden items-center gap-3 md:flex">
-                <a href="{{ route('login') }}" class="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">Masuk</a>
-                <a href="{{ route('register') }}" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500">Daftar</a>
+                <a href="{{ route('login') }}" class="text-sm font-medium text-slate-600 transition hover:text-slate-900">Login Admin</a>
             </div>
 
             <button
@@ -51,9 +50,8 @@
                 <a href="{{ route('gallery.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Galeri</a>
                 <a href="{{ route('achievement.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Prestasi</a>
                 <a href="{{ route('contact.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Kontak</a>
-                <div class="mt-2 grid grid-cols-2 gap-2 border-t border-slate-200 pt-3">
-                    <a href="{{ route('login') }}" class="rounded-lg border border-slate-200 px-3 py-2 text-center text-sm font-semibold text-slate-700">Masuk</a>
-                    <a href="{{ route('register') }}" class="rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white">Daftar</a>
+                <div class="mt-2 border-t border-slate-200 pt-3">
+                    <a href="{{ route('login') }}" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Login Admin</a>
                 </div>
             </div>
         </div>

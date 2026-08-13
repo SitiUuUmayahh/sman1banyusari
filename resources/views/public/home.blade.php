@@ -17,7 +17,7 @@
 
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4 sm:pt-6">
             <a href="{{ route('ppdb.index') }}" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white shadow-md transition hover:bg-blue-500 active:scale-95">
-                Daftar PPDB
+                Info PPDB
             </a>
             <a href="{{ route('school.profile') }}" class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50">
                 Pelajari Lebih Lanjut
