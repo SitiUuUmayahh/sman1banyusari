@@ -1,0 +1,55 @@
+<nav x-data="{ open: false }" class="border-b border-slate-200 bg-white shadow-sm">
+    <div class="container-shell">
+        <div class="flex h-16 items-center justify-between gap-4 sm:h-20">
+            <div class="flex items-center gap-3">
+                <a href="{{ route('home') }}" class="flex items-center gap-3">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 font-bold text-white shadow-sm">S</span>
+                    <div class="leading-tight">
+                        <div class="text-sm font-extrabold uppercase tracking-[0.2em] text-slate-900">SMAN 1</div>
+                        <div class="text-[10px] font-medium text-slate-500">Banyusari</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hidden items-center gap-2 md:flex">
+                <a href="{{ route('home') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Beranda</a>
+                <a href="{{ route('school.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Sekolah</a>
+                <a href="{{ route('admin.dashboard') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Admin</a>
+                <a href="{{ route('absensi.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Absensi</a>
+            </div>
+
+            <div class="hidden items-center gap-3 md:flex">
+                <a href="{{ route('login') }}" class="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">Masuk</a>
+                <a href="{{ route('register') }}" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500">Daftar</a>
+            </div>
+
+            <button
+                type="button"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 text-slate-700 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 md:hidden"
+                @click="open = !open"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+            >
+                <svg x-show="!open" x-cloak class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+                <svg x-show="open" x-cloak class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="open" x-transition x-cloak class="border-t border-slate-200 bg-white py-3 md:hidden">
+            <div class="flex flex-col gap-1">
+                <a href="{{ route('home') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Beranda</a>
+                <a href="{{ route('school.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Sekolah</a>
+                <a href="{{ route('admin.dashboard') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Admin</a>
+                <a href="{{ route('absensi.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Absensi</a>
+                <div class="mt-2 grid grid-cols-2 gap-2 border-t border-slate-200 pt-3">
+                    <a href="{{ route('login') }}" class="rounded-lg border border-slate-200 px-3 py-2 text-center text-sm font-semibold text-slate-700">Masuk</a>
+                    <a href="{{ route('register') }}" class="rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white">Daftar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
