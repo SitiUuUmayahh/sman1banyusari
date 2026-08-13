@@ -12,7 +12,7 @@
     <!-- Filter Dropdown -->
     <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
         <label for="filter" class="text-sm font-semibold text-slate-700">Filter Tingkat:</label>
-        <select id="filter" onchange="window.location.href = new URL(window.location).searchParams.set('tingkat', this.value) || '{{ route('achievement.index') }}?tingkat=' + this.value, window.location).href" class="rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-700">
+        <select id="filter" onchange="window.location.href = new URL(window.location).searchParams.set('tingkat', this.value) || '{{ route('achievement.index') }}?tingkat=' + this.value, window.location).href" class="rounded-lg border border-slate-300 px-4 py-2 pr-10 text-sm text-slate-700 min-w-max">
             <option value="semua" {{ $filter === 'semua' ? 'selected' : '' }}>Semua</option>
             @foreach($tingkats as $tingkat)
                 <option value="{{ $tingkat }}" {{ $filter === $tingkat ? 'selected' : '' }}>
