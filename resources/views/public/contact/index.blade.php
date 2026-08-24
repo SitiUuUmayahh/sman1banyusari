@@ -3,7 +3,7 @@
 @section('title', 'Kontak')
 
 @section('content')
-<div class="space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+<div class="space-y-6 sm:space-y-8">
     <div class="text-center sm:text-left">
         <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Kontak Kami</h1>
         <p class="mt-2 text-slate-600">Hubungi kami untuk informasi lebih lanjut</p>
@@ -27,10 +27,10 @@
         </div>
     @endif
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+    <div class="grid max-w-6xl grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
         <!-- Contact Info -->
         <div class="space-y-6">
-            <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
                 <div class="flex gap-4">
                     <div class="flex-shrink-0">
                         <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
                 <div class="flex gap-4">
                     <div class="flex-shrink-0">
                         <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
                 <div class="flex gap-4">
                     <div class="flex-shrink-0">
                         <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
@@ -89,7 +89,7 @@
         </div>
 
         <!-- Contact Form -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
             <h3 class="text-xl font-bold text-slate-900 mb-6">Kirim Pesan</h3>
 
             <form action="{{ route('contact.store') }}" method="POST" class="space-y-4">
@@ -165,7 +165,7 @@
     </div>
 
     <!-- Maps Placeholder -->
-    <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
+    <div class="max-w-6xl overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7865033036247!2d107.00394!3d-6.267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d5d5d5d5d5d%3A0x5d5d5d5d5d5d5d!2sSMAN%201%20Banyusari!5e0!3m2!1sid!2sid!4v1234567890"
             width="100%"

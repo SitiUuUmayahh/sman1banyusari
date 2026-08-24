@@ -7,7 +7,7 @@
     <section class="relative isolate min-h-[30rem] overflow-hidden rounded-2xl bg-violet-950 shadow-xl sm:min-h-[34rem]">
         <img src="{{ $heroImage }}" alt="Gedung SMAN 1 Banyusari" class="absolute inset-0 -z-20 h-full w-full object-cover">
         <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/85 via-violet-950/60 to-violet-950/10"></div>
-        <div class="flex min-h-[30rem] max-w-2xl flex-col justify-end p-6 pb-28 text-white sm:min-h-[34rem] sm:p-10 sm:pb-32 lg:p-14">
+        <div class="flex min-h-[30rem] max-w-2xl flex-col justify-end p-6 pb-40 text-white sm:min-h-[34rem] sm:p-10 sm:pb-40 lg:p-14 lg:pb-44">
             @if($ppdbInfo)
                 <span class="w-fit rounded-full bg-amber-300 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-violet-950">Penerimaan Siswa Baru Dibuka</span>
             @else
