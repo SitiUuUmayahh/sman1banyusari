@@ -12,8 +12,8 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="min-h-screen bg-slate-100 font-sans text-slate-800">
-        <div class="min-h-screen">
+    <body class="min-h-screen bg-[#f7f3fb] font-sans text-slate-800">
+        <div class="flex min-h-screen flex-col">
             @include('layouts.navbar')
 
             @isset($header)
@@ -24,7 +24,7 @@
                 </header>
             @endisset
 
-            <main class="container-shell py-6 sm:py-8 lg:py-10">
+            <main class="container-shell flex-1 py-6 sm:py-8 lg:py-10">
                 @if (isset($slot))
                     {{ $slot }}
                 @elseif(isset($content))
@@ -35,6 +35,8 @@
                     @yield('content')
                 @endif
             </main>
+
+            @include('layouts.footer')
         </div>
     </body>
 </html>

@@ -14,5 +14,6 @@ class HalamanStatis extends Model
         'slug',
         'judul',
         'konten',
+        'jumlah_siswa_aktif',
     ];
 }

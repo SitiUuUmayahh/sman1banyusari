@@ -16,6 +16,7 @@ class Berita extends Model
         'slug',
         'konten',
         'gambar_cover',
+        'kategori',
         'admin_id',
         'published_at',
     ];
