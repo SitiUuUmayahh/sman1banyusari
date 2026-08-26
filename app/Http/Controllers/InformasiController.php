@@ -8,7 +8,10 @@ class InformasiController extends Controller
 {
     public function index()
     {
-        $pengumuman = Pengumuman::orderBy('tanggal', 'desc')->paginate(10);
+        $pengumuman = Pengumuman::aktif()
+            ->orderByDesc('tanggal')
+            ->orderByDesc('id')
+            ->paginate(10);
 
         return view('public.informasi.index', [
             'pengumuman' => $pengumuman,

@@ -8,7 +8,9 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class PengumumanResource extends Resource
 {
@@ -29,9 +31,13 @@ class PengumumanResource extends Resource
                     ->maxLength(255)
                     ->columnSpanFull(),
                 Forms\Components\DatePicker::make('tanggal')
-                    ->label('Tanggal')
+                    ->label('Tanggal Publikasi')
                     ->required()
-                    ->default(now()),
+                    ->default(now())
+                    ->helperText('Tanggal publikasi dipakai sebagai tanggal mulai pengumuman.'),
+                Forms\Components\DatePicker::make('tanggal_selesai')
+                    ->label('Tanggal Selesai')
+                    ->helperText('Kosong berarti berlaku tanpa batas waktu.'),
                 Forms\Components\RichEditor::make('konten')
                     ->label('Konten')
                     ->required()
@@ -46,10 +52,39 @@ class PengumumanResource extends Resource
                 Tables\Columns\TextColumn::make('judul')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Status')
+                    ->badge()
+                    ->sortable(false)
+                    ->state(fn (Pengumuman $record): string => $record->isAktif() ? 'Aktif' : 'Arsip')
+                    ->color(fn (Pengumuman $record): string => $record->isAktif() ? 'success' : 'warning'),
                 Tables\Columns\TextColumn::make('tanggal')
                     ->label('Tanggal')
                     ->date('d F Y')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('tanggal_selesai')
+                    ->label('Selesai')
+                    ->date('d F Y')
+                    ->sortable(),
+            ])
+            ->filters([
+                Tables\Filters\SelectFilter::make('status')
+                    ->label('Status')
+                    ->options([
+                        'aktif' => 'Aktif',
+                        'arsip' => 'Arsip',
+                    ])
+                    ->query(function (Builder $query, array $state): Builder {
+                        if (($state['value'] ?? null) === 'aktif') {
+                            return $query->aktif();
+                        }
+
+                        if (($state['value'] ?? null) === 'arsip') {
+                            return $query->arsip();
+                        }
+
+                        return $query;
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

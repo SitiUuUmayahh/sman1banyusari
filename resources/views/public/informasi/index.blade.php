@@ -5,28 +5,34 @@
 @section('content')
 <div class="space-y-6 sm:space-y-8">
     <div class="text-center sm:text-left">
-        <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Informasi</h1>
+        <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">Informasi</h1>
         <p class="mt-2 text-slate-600">Pengumuman dan informasi penting dari sekolah.</p>
     </div>
 
     @if($pengumuman->count() > 0)
-        <div class="space-y-4">
+        <div class="grid gap-4 lg:grid-cols-2">
             @foreach($pengumuman as $item)
-                <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-violet-200 hover:shadow-md sm:p-6">
-                    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                        <div class="space-y-2">
-                            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-violet-700">
+                <article class="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-violet-200 hover:shadow-md sm:p-5">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-700">
                                 {{ $item->tanggal?->format('d M Y') }}
                             </p>
-                            <h2 class="text-xl font-bold text-slate-900 sm:text-2xl">{{ $item->judul }}</h2>
+                            <h2 class="mt-2 text-lg font-bold text-slate-900 sm:text-xl">{{ $item->judul }}</h2>
                         </div>
-                        <a href="{{ route('informasi.show', $item->id) }}" class="inline-flex items-center justify-center rounded-lg border border-violet-200 bg-violet-50 px-4 py-2 text-sm font-semibold text-violet-800 transition hover:bg-violet-100">
-                            Baca detail
-                        </a>
+                        <span class="inline-flex items-center rounded-full bg-violet-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-violet-800">
+                            Aktif
+                        </span>
                     </div>
 
-                    <div class="mt-4 prose prose-sm max-w-none text-slate-600">
-                        {!! Str::limit(strip_tags($item->konten), 220) !!}
+                    <div class="mt-3 text-sm leading-6 text-slate-600">
+                        {!! Str::limit(strip_tags($item->konten), 180) !!}
+                    </div>
+
+                    <div class="mt-auto pt-4">
+                        <a href="{{ route('informasi.show', $item->id) }}" class="inline-flex items-center text-sm font-semibold text-violet-700 transition hover:text-violet-800">
+                            Baca detail <span class="ml-2">→</span>
+                        </a>
                     </div>
                 </article>
             @endforeach

@@ -16,12 +16,14 @@ class PublicController extends Controller
             ->take(3)
             ->get();
 
-        $latestAnnouncements = Pengumuman::orderByDesc('tanggal')
+        $latestAnnouncements = Pengumuman::aktif()
+            ->orderByDesc('tanggal')
             ->orderByDesc('id')
             ->take(3)
             ->get();
 
-        $latestAnnouncement = Pengumuman::orderByDesc('tanggal')
+        $latestAnnouncement = Pengumuman::aktif()
+            ->orderByDesc('tanggal')
             ->orderByDesc('id')
             ->first();
 
