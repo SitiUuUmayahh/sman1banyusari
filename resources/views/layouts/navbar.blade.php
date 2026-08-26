@@ -22,7 +22,7 @@
             </div>
 
             <div class="hidden items-center gap-3 md:flex">
-                <a href="{{ route('login') }}" class="rounded-lg bg-violet-700 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-violet-800">Login</a>
+                <a href="{{ route('filament.admin.auth.login') }}" class="rounded-lg bg-violet-700 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-violet-800">Login</a>
             </div>
 
             <button
@@ -59,7 +59,7 @@
                     <a @click="open = false" href="{{ route('contact.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Kontak</a>
                 </div>
                 <div class="mt-auto border-t border-violet-100 pt-5">
-                    <a href="{{ route('login') }}" class="flex items-center justify-center rounded-lg bg-violet-700 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-800">Login</a>
+                    <a href="{{ route('filament.admin.auth.login') }}" class="flex items-center justify-center rounded-lg bg-violet-700 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-800">Login</a>
                 </div>
             </aside>
         </div>
