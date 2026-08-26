@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
+use Filament\Panel;
 use Spatie\Permission\Traits\HasRoles;
 
-class AdminUser extends Authenticatable
+class AdminUser extends Authenticatable implements FilamentUser, HasName
 {
     use HasRoles;
 
@@ -28,6 +31,16 @@ class AdminUser extends Authenticatable
     ];
 
     protected $guard_name = 'web';
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
+    }
+
+    public function getFilamentName(): string
+    {
+        return $this->nama;
+    }
 
     public function beritas(): HasMany
     {
