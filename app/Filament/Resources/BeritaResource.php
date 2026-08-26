@@ -40,6 +40,11 @@ class BeritaResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('gambar_cover')
                     ->image()
+                    ->imageResizeMode('cover')
+                    ->imageResizeTargetWidth('1200')
+                    ->imageResizeTargetHeight('800')
+                    ->imageEditor()
+                    ->maxSize(2048)
                     ->disk('public')
                     ->directory('berita')
                     ->visibility('public')
