@@ -28,7 +28,7 @@
     <!-- Featured Image -->
     @if($article->gambar_cover)
         <div class="overflow-hidden rounded-2xl bg-slate-200 aspect-video">
-            <img src="{{ $article->gambar_cover }}" alt="{{ $article->judul }}" loading="lazy" class="h-full w-full object-cover">
+            <img src="{{ $article->gambar_cover ? (str_starts_with($article->gambar_cover, 'http') ? $article->gambar_cover : asset('storage/' . $article->gambar_cover)) : asset('images/placeholder.png') }}" alt="{{ $article->judul }}" loading="lazy" class="h-full w-full object-cover">
         </div>
     @endif
 

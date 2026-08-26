@@ -15,7 +15,7 @@
                 <a href="{{ route('gallery.show', $album->id) }}" class="group overflow-hidden rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg hover:border-slate-300">
                     <div class="aspect-square overflow-hidden bg-slate-200 relative">
                         @if($album->galeriFotos->count() > 0 && $album->galeriFotos->first()->path_foto)
-                            <img src="{{ $album->galeriFotos->first()->path_foto }}" alt="{{ $album->judul_album }}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-105">
+                            <img src="{{ $album->galeriFotos->first()->path_foto ? (str_starts_with($album->galeriFotos->first()->path_foto, 'http') ? $album->galeriFotos->first()->path_foto : asset('storage/' . $album->galeriFotos->first()->path_foto)) : asset('images/placeholder.png') }}" alt="{{ $album->judul_album }}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-105">
                         @else
                             <div class="h-full w-full bg-gradient-to-br from-slate-300 to-slate-400 flex items-center justify-center">
                                 <svg class="h-16 w-16 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

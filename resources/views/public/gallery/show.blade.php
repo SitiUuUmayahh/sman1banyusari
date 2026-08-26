@@ -20,14 +20,14 @@
 
     <!-- Photos Grid -->
     @if($album->galeriFotos->count() > 0)
-        <div x-data="{ open: false, current: 0, photos: {{ json_encode($album->galeriFotos->map(fn($f) => ['src' => $f->path_foto, 'caption' => $f->caption])->toArray()) }} }" class="space-y-6">
+        <div x-data="{ open: false, current: 0, photos: {{ json_encode($album->galeriFotos->map(fn($f) => ['src' => $f->path_foto ? (str_starts_with($f->path_foto, 'http') ? $f->path_foto : asset('storage/' . $f->path_foto)) : asset('images/placeholder.png'), 'caption' => $f->caption])->toArray()) }} }" class="space-y-6">
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                 @foreach($album->galeriFotos as $index => $foto)
                     <button
                         @click="open = true; current = {{ $index }}"
                         class="group relative overflow-hidden rounded-lg bg-slate-200 aspect-square cursor-pointer"
                     >
-                        <img src="{{ $foto->path_foto }}" alt="{{ $foto->caption }}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-110">
+                        <img src="{{ $foto->path_foto ? (str_starts_with($foto->path_foto, 'http') ? $foto->path_foto : asset('storage/' . $foto->path_foto)) : asset('images/placeholder.png') }}" alt="{{ $foto->caption }}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/0 transition group-hover:bg-black/30 flex items-center justify-center">
                             <svg class="h-6 w-6 text-white opacity-0 transition group-hover:opacity-100" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />

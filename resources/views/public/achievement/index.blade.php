@@ -29,7 +29,7 @@
                 <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-lg transition">
                     @if($achievement->gambar)
                         <div class="aspect-square overflow-hidden rounded-lg bg-slate-200 mb-4">
-                            <img src="{{ $achievement->gambar }}" alt="{{ $achievement->judul }}" loading="lazy" class="h-full w-full object-cover">
+                            <img src="{{ $achievement->gambar ? (str_starts_with($achievement->gambar, 'http') ? $achievement->gambar : asset('storage/' . $achievement->gambar)) : asset('images/placeholder.png') }}" alt="{{ $achievement->judul }}" loading="lazy" class="h-full w-full object-cover">
                         </div>
                     @else
                         <div class="aspect-square rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 mb-4 flex items-center justify-center">

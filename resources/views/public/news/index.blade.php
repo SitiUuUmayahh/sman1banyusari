@@ -15,7 +15,7 @@
                 <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-slate-300">
                     @if($article->gambar_cover)
                         <div class="aspect-video overflow-hidden bg-slate-200">
-                            <img src="{{ $article->gambar_cover }}" alt="{{ $article->judul }}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-105">
+                            <img src="{{ $article->gambar_cover ? (str_starts_with($article->gambar_cover, 'http') ? $article->gambar_cover : asset('storage/' . $article->gambar_cover)) : asset('images/placeholder.png') }}" alt="{{ $article->judul }}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-105">
                         </div>
                     @endif
 
