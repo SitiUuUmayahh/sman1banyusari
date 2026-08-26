@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\ContactController;
@@ -15,7 +15,8 @@ Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/sekolah/profil', [SchoolController::class, 'profile'])->name('school.profile');
 Route::get('/berita', [NewsController::class, 'index'])->name('news.index');
 Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('news.show');
-Route::get('/ppdb', [PpdbController::class, 'index'])->name('ppdb.index');
+Route::get('/informasi', [InformasiController::class, 'index'])->name('informasi.index');
+Route::get('/informasi/{id}', [InformasiController::class, 'show'])->name('informasi.show');
 Route::get('/galeri', [GalleryController::class, 'index'])->name('gallery.index');
 Route::get('/galeri/{id}', [GalleryController::class, 'show'])->name('gallery.show');
 Route::get('/prestasi', [AchievementController::class, 'index'])->name('achievement.index');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\HalamanStatis;
-use App\Models\PpdbInfo;
+use App\Models\Pengumuman;
 use App\Models\Prestasi;
 
 class PublicController extends Controller
@@ -16,20 +16,29 @@ class PublicController extends Controller
             ->take(3)
             ->get();
 
+        $latestAnnouncements = Pengumuman::orderByDesc('tanggal')
+            ->orderByDesc('id')
+            ->take(3)
+            ->get();
+
+        $latestAnnouncement = Pengumuman::orderByDesc('tanggal')
+            ->orderByDesc('id')
+            ->first();
+
         $latestAchievements = Prestasi::orderByDesc('tahun')
             ->orderByDesc('id')
             ->take(3)
             ->get();
         $achievementCount = Prestasi::count();
 
-        $ppdbInfo = PpdbInfo::orderByDesc('tahun_ajaran')->first();
         $studentStats = HalamanStatis::where('slug', 'statistik-sekolah')->first();
 
         return view('public.home', [
             'latestNews' => $latestNews,
+            'latestAnnouncements' => $latestAnnouncements,
+            'latestAnnouncement' => $latestAnnouncement,
             'latestAchievements' => $latestAchievements,
             'achievementCount' => $achievementCount,
-            'ppdbInfo' => $ppdbInfo,
             'activeStudents' => $studentStats?->jumlah_siswa_aktif,
             'activeStudentsLabel' => $studentStats?->jumlah_siswa_aktif
                 ? number_format($studentStats->jumlah_siswa_aktif, 0, ',', '.') . '+'

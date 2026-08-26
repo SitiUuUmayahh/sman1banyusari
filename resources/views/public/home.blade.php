@@ -8,15 +8,15 @@
         <img src="{{ $heroImage }}" alt="Gedung SMAN 1 Banyusari" class="absolute inset-0 -z-20 h-full w-full object-cover">
         <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/85 via-violet-950/60 to-violet-950/10"></div>
         <div class="flex min-h-[30rem] max-w-2xl flex-col justify-end p-6 pb-40 text-white sm:min-h-[34rem] sm:p-10 sm:pb-40 lg:p-14 lg:pb-44">
-            @if($ppdbInfo)
-                <span class="w-fit rounded-full bg-amber-300 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-violet-950">Penerimaan Siswa Baru Dibuka</span>
+            @if($latestAnnouncement)
+                <span class="w-fit rounded-full bg-amber-300 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-violet-950">{{ Str::limit($latestAnnouncement->judul, 42) }}</span>
             @else
                 <span class="w-fit rounded-full bg-white/20 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-white">Selamat Datang</span>
             @endif
             <h1 class="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">Mewujudkan Generasi Unggul &amp; Berkarakter</h1>
             <p class="mt-4 max-w-xl text-sm leading-6 text-white/85 sm:text-base">Membangun generasi cerdas, berintegritas, serta siap menghadapi tantangan global melalui pendidikan yang bermakna.</p>
             <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-                <a href="{{ route('ppdb.index') }}" class="inline-flex items-center justify-center rounded-lg bg-violet-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-violet-600">Info PPDB <span class="ml-2">&rarr;</span></a>
+                <a href="{{ route('informasi.index') }}" class="inline-flex items-center justify-center rounded-lg bg-violet-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-violet-600">Lihat Informasi <span class="ml-2">&rarr;</span></a>
                 <a href="{{ route('school.profile') }}" class="inline-flex items-center justify-center rounded-lg border border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/20">Pelajari Lebih Lanjut</a>
             </div>
         </div>
@@ -24,6 +24,30 @@
             <div class="p-4 sm:p-5"><p class="text-2xl font-extrabold text-white">{{ $activeStudentsLabel }}</p><p class="mt-1 text-[11px] uppercase tracking-wider text-white/70">Siswa Aktif</p></div>
             <div class="p-4 sm:p-5"><p class="text-2xl font-extrabold text-white">{{ $achievementCount > 0 ? $achievementCount . '+' : 'N/A' }}</p><p class="mt-1 text-[11px] uppercase tracking-wider text-white/70">Total Prestasi</p></div>
         </div>
+    </section>
+
+    <section class="space-y-6">
+        <div class="flex items-end justify-between gap-4">
+            <div><span class="text-xs font-extrabold uppercase tracking-[0.16em] text-violet-700">Informasi Terkini</span><h2 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900">Pengumuman Terbaru</h2><p class="mt-2 text-sm text-slate-600">Kabar dan informasi penting terbaru dari sekolah.</p></div>
+            <a href="{{ route('informasi.index') }}" class="hidden shrink-0 text-sm font-bold text-violet-800 sm:inline-flex sm:items-center">Lihat Semua Informasi <span class="ml-2 text-lg">&rarr;</span></a>
+        </div>
+        @if($latestAnnouncements->count() > 0)
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach($latestAnnouncements as $announcement)
+                    <article class="group overflow-hidden rounded-xl border border-violet-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        <div class="p-5">
+                            <p class="text-xs font-medium text-slate-500">{{ $announcement->tanggal?->format('d M Y') }}</p>
+                            <h3 class="mt-2 line-clamp-2 text-lg font-bold leading-6 text-slate-900">{{ $announcement->judul }}</h3>
+                            <p class="mt-3 line-clamp-4 text-sm leading-5 text-slate-600">{{ \Illuminate\Support\Str::limit(strip_tags($announcement->konten), 140) }}</p>
+                            <a href="{{ route('informasi.show', $announcement->id) }}" class="mt-5 inline-flex text-sm font-bold text-violet-800">Baca Pengumuman <span class="ml-2">&rarr;</span></a>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+            <a href="{{ route('informasi.index') }}" class="inline-flex text-sm font-bold text-violet-800 sm:hidden">Lihat Semua Informasi <span class="ml-2">&rarr;</span></a>
+        @else
+            <div class="rounded-xl border border-violet-100 bg-white p-8 text-center text-sm text-slate-600">Belum ada pengumuman terbaru.</div>
+        @endif
     </section>
 
     <section class="space-y-6">

@@ -15,6 +15,7 @@
                 <a href="{{ route('home') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Beranda</a>
                 <a href="{{ route('school.profile') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Profil</a>
                 <a href="{{ route('news.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Berita</a>
+                <a href="{{ route('informasi.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Informasi</a>
                 <a href="{{ route('ppdb.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">PPDB</a>
                 <a href="{{ route('gallery.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Galeri</a>
                 <a href="{{ route('achievement.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Prestasi</a>
@@ -53,6 +54,7 @@
                     <a @click="open = false" href="{{ route('home') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Beranda</a>
                     <a @click="open = false" href="{{ route('school.profile') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Profil</a>
                     <a @click="open = false" href="{{ route('news.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Berita</a>
+                    <a @click="open = false" href="{{ route('informasi.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Informasi</a>
                     <a @click="open = false" href="{{ route('ppdb.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">PPDB</a>
                     <a @click="open = false" href="{{ route('gallery.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Galeri</a>
                     <a @click="open = false" href="{{ route('achievement.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Prestasi</a>

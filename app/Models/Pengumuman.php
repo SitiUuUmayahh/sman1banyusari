@@ -5,18 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PpdbInfo extends Model
+class Pengumuman extends Model
 {
-    protected $table = 'ppdb_info';
+    protected $table = 'pengumuman';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'tahun_ajaran',
-        'jadwal',
-        'syarat',
+        'judul',
+        'konten',
+        'tanggal',
         'admin_id',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'tanggal' => 'date',
+        ];
+    }
 
     public function adminUser(): BelongsTo
     {

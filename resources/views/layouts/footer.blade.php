@@ -9,6 +9,7 @@
             <div class="mt-4 flex flex-col gap-2 text-sm text-slate-600">
                 <a href="{{ route('school.profile') }}" class="hover:text-violet-800">Profil Sekolah</a>
                 <a href="{{ route('news.index') }}" class="hover:text-violet-800">Berita</a>
+                <a href="{{ route('informasi.index') }}" class="hover:text-violet-800">Informasi</a>
                 <a href="{{ route('ppdb.index') }}" class="hover:text-violet-800">PPDB</a>
                 <a href="{{ route('contact.index') }}" class="hover:text-violet-800">Kontak Kami</a>
             </div>

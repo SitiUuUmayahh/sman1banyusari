@@ -52,8 +52,8 @@ class AdminUser extends Authenticatable implements FilamentUser, HasName
         return $this->hasMany(Prestasi::class, 'admin_id', 'id');
     }
 
-    public function ppdbInfos(): HasMany
+    public function pengumumans(): HasMany
     {
-        return $this->hasMany(PpdbInfo::class, 'admin_id', 'id');
+        return $this->hasMany(Pengumuman::class, 'admin_id', 'id');
     }
 }
