@@ -9,6 +9,9 @@ use Filament\Models\Contracts\HasName;
 use Filament\Panel;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @method bool hasRole(string|int|array|\Spatie\Permission\Models\Role|\Illuminate\Support\Collection|\BackedEnum $roles, ?string $guard = null)
+ */
 class AdminUser extends Authenticatable implements FilamentUser, HasName
 {
     use HasRoles;

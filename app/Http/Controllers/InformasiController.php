@@ -18,7 +18,7 @@ class InformasiController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show(int|string $id)
     {
         $pengumuman = Pengumuman::findOrFail($id);
 
