@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\Login;
+use App\Filament\Pages\Auth\EditProfile;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -30,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->authGuard('admin')
             ->brandName('SMAN 1 Banyusari')
             ->login(Login::class)
+            ->profile(EditProfile::class)
             ->colors([
                 'primary' => Color::Indigo,
             ])
