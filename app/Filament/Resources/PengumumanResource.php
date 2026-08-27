@@ -41,6 +41,7 @@ class PengumumanResource extends Resource
                 Forms\Components\RichEditor::make('konten')
                     ->label('Konten')
                     ->required()
+                    ->extraInputAttributes(['style' => 'max-height: 320px; overflow-y: auto;'])
                     ->columnSpanFull(),
             ]);
     }

@@ -37,6 +37,7 @@ class BeritaResource extends Resource
                     ->maxLength(255),
                 Forms\Components\RichEditor::make('konten')
                     ->required()
+                    ->extraInputAttributes(['style' => 'max-height: 320px; overflow-y: auto;'])
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('gambar_cover')
                     ->image()
