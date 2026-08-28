@@ -9,10 +9,9 @@
         <p class="mt-2 text-slate-600">Pencapaian siswa dan sekolah</p>
     </div>
 
-    <!-- Filter Dropdown -->
-    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+    <form method="GET" action="{{ route('achievement.index') }}" class="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
         <label for="filter" class="text-sm font-semibold text-slate-700">Filter Tingkat:</label>
-        <select id="filter" onchange="window.location.href = new URL(window.location).searchParams.set('tingkat', this.value) || '{{ route('achievement.index') }}?tingkat=' + this.value, window.location).href" class="rounded-lg border border-slate-300 px-4 py-2 pr-10 text-sm text-slate-700 min-w-max">
+        <select id="filter" name="tingkat" onchange="this.form.submit()" class="min-w-max rounded-lg border border-slate-300 px-4 py-2 pr-10 text-sm text-slate-700">
             <option value="semua" {{ $filter === 'semua' ? 'selected' : '' }}>Semua</option>
             @foreach($tingkats as $tingkat)
                 <option value="{{ $tingkat }}" {{ $filter === $tingkat ? 'selected' : '' }}>
@@ -20,7 +19,7 @@
                 </option>
             @endforeach
         </select>
-    </div>
+    </form>
 
     <!-- Achievements Grid -->
     @if($achievements->count() > 0)
