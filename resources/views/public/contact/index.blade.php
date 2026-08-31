@@ -30,6 +30,7 @@
     <div class="grid max-w-6xl grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
         <!-- Contact Info -->
         <div class="space-y-6">
+            @if($settings->alamat_sekolah)
             <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
                 <div class="flex gap-4">
                     <div class="flex-shrink-0">
@@ -42,11 +43,13 @@
                     </div>
                     <div>
                         <h3 class="font-semibold text-slate-900">Alamat</h3>
-                        <p class="mt-1 text-slate-600">Jl. Pendidikan No. 1<br>Banyusari, Jawa Barat 12345</p>
+                        <p class="mt-1 text-slate-600">{{ $settings->alamat_sekolah }}</p>
                     </div>
                 </div>
             </div>
+            @endif
 
+            @if($settings->email_sekolah)
             <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
                 <div class="flex gap-4">
                     <div class="flex-shrink-0">
@@ -59,14 +62,16 @@
                     <div>
                         <h3 class="font-semibold text-slate-900">Email</h3>
                         <p class="mt-1 text-slate-600">
-                            <a href="mailto:info@sman1banyusari.sch.id" class="text-blue-600 hover:text-blue-500">
-                                info@sman1banyusari.sch.id
+                            <a href="mailto:{{ $settings->email_sekolah }}" class="text-blue-600 hover:text-blue-500">
+                                {{ $settings->email_sekolah }}
                             </a>
                         </p>
                     </div>
                 </div>
             </div>
+            @endif
 
+            @if($settings->telepon_sekolah)
             <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
                 <div class="flex gap-4">
                     <div class="flex-shrink-0">
@@ -79,13 +84,14 @@
                     <div>
                         <h3 class="font-semibold text-slate-900">Telepon</h3>
                         <p class="mt-1 text-slate-600">
-                            <a href="tel:+62212345678" class="text-blue-600 hover:text-blue-500">
-                                (0221) 234-5678
+                            <a href="tel:{{ str_replace([' ', '-', '(', ')'], '', $settings->telepon_sekolah) }}" class="text-blue-600 hover:text-blue-500">
+                                {{ $settings->telepon_sekolah }}
                             </a>
                         </p>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
 
         <!-- Contact Form -->
@@ -166,15 +172,19 @@
 
     <!-- Maps Placeholder -->
     <div class="max-w-6xl overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7865033036247!2d107.00394!3d-6.267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d5d5d5d5d5d%3A0x5d5d5d5d5d5d5d!2sSMAN%201%20Banyusari!5e0!3m2!1sid!2sid!4v1234567890"
-            width="100%"
-            height="400"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+        @if($settings->google_maps_embed_url)
+            {!! $settings->google_maps_embed_url !!}
+        @else
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7865033036247!2d107.00394!3d-6.267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d5d5d5d5d5d%3A0x5d5d5d5d5d5d5d!2sSMAN%201%20Banyusari!5e0!3m2!1sid!2sid!4v1234567890"
+                width="100%"
+                height="400"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        @endif
     </div>
 </div>
 @endsection

@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PesanKontak;
+use App\Models\PengaturanUmum;
+
 class ContactController extends Controller
 {
     public function index()
     {
-        return view('public.contact.index');
+        $settings = PengaturanUmum::getInstance();
+        return view('public.contact.index', compact('settings'));
     }
 
     public function store()
@@ -18,7 +22,8 @@ class ContactController extends Controller
             'pesan' => 'required|string|min:10',
         ]);
 
-        \Log::info('Contact form submitted:', $validated);
+        // Save to database
+        PesanKontak::create($validated);
 
         return back()->with('success', 'Pesan Anda telah diterima. Terima kasih!');
     }
