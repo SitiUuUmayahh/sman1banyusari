@@ -32,31 +32,30 @@
         </div>
         <div class="space-y-4">
             @if($settings->instagram_url || $settings->facebook_url || $settings->youtube_url || $settings->tiktok_url)
-                <div class="flex flex-col gap-3">
-                    @if($settings->instagram_url)
-                        <a href="{{ $settings->instagram_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-violet-800">
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
-                            Instagram
-                        </a>
-                    @endif
-                    @if($settings->facebook_url)
-                        <a href="{{ $settings->facebook_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-violet-800">
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                            Facebook
-                        </a>
-                    @endif
-                    @if($settings->youtube_url)
-                        <a href="{{ $settings->youtube_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-violet-800">
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                            YouTube
-                        </a>
-                    @endif
-                    @if($settings->tiktok_url)
-                        <a href="{{ $settings->tiktok_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-violet-800">
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.498 15.25v-8.49c0-2.82-.99-5.47-3.04-7.5h-4.88v15.29c-.1.59-.64 1.04-1.3 1.04-.71 0-1.28-.57-1.28-1.28s.57-1.28 1.28-1.28c.37 0 .7.16.94.42v-4.23c-.29-.05-.58-.07-.88-.07-2.75 0-4.99 2.24-4.99 4.99 0 2.75 2.24 4.99 4.99 4.99 2.37 0 4.38-1.66 4.84-3.87V5.59c1.05 1.16 1.76 2.74 1.76 4.44v4.16c0 .11.01.22.03.33.28 1.46 1.53 2.57 3.04 2.57 1.71 0 3.1-1.39 3.1-3.1z"/></svg>
-                            TikTok
-                        </a>
-                    @endif
+                <div>
+                    <h2 class="text-sm font-bold text-slate-900">Media Sosial</h2>
+                    <div class="mt-4 flex flex-wrap items-center gap-3">
+                        @if($settings->instagram_url)
+                            <a href="{{ $settings->instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white shadow-sm transition hover:scale-105 hover:shadow-md">
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5-3.25a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17 6.25z"/></svg>
+                            </a>
+                        @endif
+                        @if($settings->facebook_url)
+                            <a href="{{ $settings->facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-sm transition hover:scale-105 hover:shadow-md">
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5 22v-8h2.5l.5-3h-3V7.5c0-.9.4-1.5 1.5-1.5H16V3.2c-.5-.1-1.4-.2-2.6-.2-2.4 0-4.1 1.5-4.1 4.2V11H7v3h2.3v8h4.2z"/></svg>
+                            </a>
+                        @endif
+                        @if($settings->youtube_url)
+                            <a href="{{ $settings->youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-red-600 text-white shadow-sm transition hover:scale-105 hover:shadow-md">
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 12c0-1.4-.1-2.8-.4-4.1-.5-2-2.1-3.6-4.1-4.1C17.8 3.5 15.4 3 12 3s-5.8.5-7 .8c-2 .5-3.6 2.1-4.1 4.1C.5 9.2.4 10.6.4 12c0 1.4.1 2.8.4 4.1.5 2 2.1 3.6 4.1 4.1 1.2.3 3.6.8 7 .8s5.8-.5 7-.8c2-.5 3.6-2.1 4.1-4.1.3-1.3.4-2.7.4-4.1zm-13.5 4.6V7.4L17 12l-7 4.6z"/></svg>
+                            </a>
+                        @endif
+                        @if($settings->tiktok_url)
+                            <a href="{{ $settings->tiktok_url }}" target="_blank" rel="noopener" aria-label="TikTok" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white shadow-sm transition hover:scale-105 hover:shadow-md">
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16.7 3c.2 1.6 1.2 2.9 2.9 3.3v2.4c-1.1 0-2.1-.3-3.1-.9v6.2a4.7 4.7 0 1 1-4.7-4.7c.2 0 .4 0 .7.1v2.5a2.2 2.2 0 1 0 1.5 2.1V3h3.7z"/></svg>
+                            </a>
+                        @endif
+                    </div>
                 </div>
             @endif
             <a href="https://maps.google.com/?q=SMAN+1+Banyusari" target="_blank" rel="noopener" class="flex min-h-32 flex-col items-center justify-center rounded-xl border border-violet-100 bg-white/40 text-center text-sm font-semibold text-violet-900 transition hover:bg-white">
