@@ -16,11 +16,4 @@ class EditPesanKontak extends EditRecord
     {
         return $this->getResource()::getUrl('index');
     }
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\SaveAction::make(),
-        ];
-    }
 }

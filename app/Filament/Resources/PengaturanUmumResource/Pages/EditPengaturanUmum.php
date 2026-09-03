@@ -11,11 +11,4 @@ class EditPengaturanUmum extends EditRecord
     protected static string $resource = PengaturanUmumResource::class;
 
     protected static ?string $title = 'Pengaturan Umum';
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\SaveAction::make(),
-        ];
-    }
 }
