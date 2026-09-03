@@ -13,7 +13,18 @@
 
             <div class="public-desktop-nav hidden items-center gap-1 md:flex">
                 <a href="{{ route('home') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Beranda</a>
-                <a href="{{ route('school.profile') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Profil</a>
+                <div x-data="{ profileOpen: false }" @click.outside="profileOpen = false" class="relative">
+                    <button type="button" @click="profileOpen = !profileOpen" class="public-nav-link inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800" :aria-expanded="profileOpen.toString()" aria-haspopup="true">
+                        Profil Sekolah
+                        <svg class="h-4 w-4 transition-transform" :class="profileOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div x-show="profileOpen" x-transition.opacity x-cloak class="absolute left-0 top-full z-50 mt-2 w-56 overflow-hidden rounded-lg border border-slate-200 bg-white py-1 text-slate-700 shadow-lg">
+                        <a href="{{ route('school.profile.greeting') }}" class="block px-4 py-3 text-sm font-medium transition hover:bg-violet-50 hover:text-violet-800">Kata Sambutan</a>
+                        <a href="{{ route('school.profile.history') }}" class="block px-4 py-3 text-sm font-medium transition hover:bg-violet-50 hover:text-violet-800">Sejarah</a>
+                        <a href="{{ route('school.profile.vision-mission') }}" class="block px-4 py-3 text-sm font-medium transition hover:bg-violet-50 hover:text-violet-800">Visi &amp; Misi</a>
+                        <a href="{{ route('school.profile.facilities') }}" class="block px-4 py-3 text-sm font-medium transition hover:bg-violet-50 hover:text-violet-800">Fasilitas</a>
+                    </div>
+                </div>
                 <a href="{{ route('news.index') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Berita</a>
                 <a href="{{ route('informasi.index') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Informasi</a>
                 <a href="{{ route('gallery.index') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Galeri</a>
@@ -51,7 +62,18 @@
                 </div>
                 <div class="flex flex-col gap-1 pt-5">
                     <a @click="open = false" href="{{ route('home') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Beranda</a>
-                    <a @click="open = false" href="{{ route('school.profile') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Profil</a>
+                    <div x-data="{ profileOpen: false }" class="rounded-lg">
+                        <button type="button" @click="profileOpen = !profileOpen" class="flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800" :aria-expanded="profileOpen.toString()" aria-haspopup="true">
+                            <span>Profil Sekolah</span>
+                            <svg class="h-4 w-4 transition-transform" :class="profileOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m6 9 6 6 6-6" /></svg>
+                        </button>
+                        <div x-show="profileOpen" x-transition x-cloak class="ml-3 border-l border-violet-100 pl-3">
+                            <a @click="open = false" href="{{ route('school.profile.greeting') }}" class="block rounded-lg px-3 py-2.5 text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-800">Kata Sambutan</a>
+                            <a @click="open = false" href="{{ route('school.profile.history') }}" class="block rounded-lg px-3 py-2.5 text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-800">Sejarah</a>
+                            <a @click="open = false" href="{{ route('school.profile.vision-mission') }}" class="block rounded-lg px-3 py-2.5 text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-800">Visi &amp; Misi</a>
+                            <a @click="open = false" href="{{ route('school.profile.facilities') }}" class="block rounded-lg px-3 py-2.5 text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-800">Fasilitas</a>
+                        </div>
+                    </div>
                     <a @click="open = false" href="{{ route('news.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Berita</a>
                     <a @click="open = false" href="{{ route('informasi.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Informasi</a>
                     <a @click="open = false" href="{{ route('gallery.index') }}" class="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-violet-50 hover:text-violet-800">Galeri</a>

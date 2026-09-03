@@ -17,7 +17,7 @@
             <p class="mt-4 max-w-xl text-sm leading-6 text-white/85 sm:text-base">Membangun generasi cerdas, berintegritas, serta siap menghadapi tantangan global melalui pendidikan yang bermakna.</p>
             <div class="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a href="{{ route('informasi.index') }}" class="inline-flex items-center justify-center rounded-lg bg-violet-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-violet-600">Lihat Informasi <span class="ml-2">&rarr;</span></a>
-                <a href="{{ route('school.profile') }}" class="inline-flex items-center justify-center rounded-lg border border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/20">Pelajari Lebih Lanjut</a>
+                <a href="{{ route('school.profile.greeting') }}" class="inline-flex items-center justify-center rounded-lg border border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/20">Pelajari Lebih Lanjut</a>
             </div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 grid grid-cols-2 divide-x divide-violet-200/40 border-t border-violet-200/30 bg-violet-950/70 backdrop-blur sm:max-w-md sm:rounded-tr-2xl">

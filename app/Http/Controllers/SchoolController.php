@@ -6,15 +6,42 @@ use App\Models\HalamanStatis;
 
 class SchoolController extends Controller
 {
-    public function profile()
+    public function greeting()
     {
-        $sections = [
-            'sambutan-kepsek' => HalamanStatis::where('slug', 'sambutan-kepsek')->first(),
-            'sejarah' => HalamanStatis::where('slug', 'sejarah')->first(),
-            'visi-misi' => HalamanStatis::where('slug', 'visi-misi')->first(),
-            'fasilitas' => HalamanStatis::where('slug', 'fasilitas')->first(),
+        return $this->profileSection('sambutan-kepsek');
+    }
+
+    public function history()
+    {
+        return $this->profileSection('sejarah');
+    }
+
+    public function visionMission()
+    {
+        return $this->profileSection('visi-misi');
+    }
+
+    public function facilities()
+    {
+        return $this->profileSection('fasilitas');
+    }
+
+    public function profileSection(string $slug)
+    {
+        $labels = [
+            'sambutan-kepsek' => 'Sambutan Kepala Sekolah',
+            'sejarah' => 'Sejarah',
+            'visi-misi' => 'Visi & Misi',
+            'fasilitas' => 'Fasilitas',
         ];
 
-        return view('public.school.profile', ['sections' => $sections]);
+        abort_unless(isset($labels[$slug]), 404);
+
+        $section = HalamanStatis::where('slug', $slug)->first();
+
+        return view('public.school.profile', [
+            'section' => $section,
+            'title' => $labels[$slug],
+        ]);
     }
 }

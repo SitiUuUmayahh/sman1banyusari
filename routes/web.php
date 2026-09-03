@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 
 // Public Routes
 Route::get('/', [PublicController::class, 'home'])->name('home');
-Route::get('/sekolah/profil', [SchoolController::class, 'profile'])->name('school.profile');
+Route::get('/sekolah/profil/sambutan-kepsek', [SchoolController::class, 'greeting'])->name('school.profile.greeting');
+Route::get('/sekolah/profil/sejarah', [SchoolController::class, 'history'])->name('school.profile.history');
+Route::get('/sekolah/profil/visi-misi', [SchoolController::class, 'visionMission'])->name('school.profile.vision-mission');
+Route::get('/sekolah/profil/fasilitas', [SchoolController::class, 'facilities'])->name('school.profile.facilities');
 Route::get('/berita', [NewsController::class, 'index'])->name('news.index');
 Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/informasi', [InformasiController::class, 'index'])->name('informasi.index');
