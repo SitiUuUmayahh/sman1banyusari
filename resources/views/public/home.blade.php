@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="space-y-14 sm:space-y-20 lg:space-y-24">
-    <section class="relative isolate min-h-[30rem] overflow-hidden rounded-2xl bg-violet-950 shadow-xl sm:min-h-[34rem]">
+    <section class="relative isolate -mx-4 -mt-6 min-h-[34rem] overflow-hidden bg-violet-950 shadow-xl sm:-mx-6 sm:-mt-8 sm:min-h-[40rem] lg:-mx-8 lg:-mt-10 lg:min-h-[44rem]">
         <img src="{{ $heroImage }}" alt="Gedung SMAN 1 Banyusari" class="absolute inset-0 -z-20 h-full w-full object-cover">
         <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/85 via-violet-950/60 to-violet-950/10"></div>
-        <div class="flex min-h-[30rem] max-w-2xl flex-col justify-end p-6 pb-40 text-white sm:min-h-[34rem] sm:p-10 sm:pb-40 lg:p-14 lg:pb-44">
+        <div class="flex min-h-[34rem] max-w-2xl flex-col justify-end p-6 pb-40 text-white sm:min-h-[40rem] sm:p-10 sm:pb-40 lg:min-h-[44rem] lg:p-14 lg:pb-44">
             @if($latestAnnouncement)
                 <span class="w-fit rounded-full bg-amber-300 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-violet-950">{{ Str::limit($latestAnnouncement->judul, 42) }}</span>
             @else

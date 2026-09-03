@@ -16,4 +16,34 @@
     .container-shell {
         @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
     }
+
+    .home-navbar {
+        transition: background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+    }
+
+    .home-navbar:not(.is-scrolled) .public-brand-name,
+    .home-navbar:not(.is-scrolled) .public-brand-subtitle,
+    .home-navbar:not(.is-scrolled) .public-nav-link {
+        color: white;
+    }
+
+    .home-navbar:not(.is-scrolled) .public-nav-link:hover {
+        background-color: rgb(255 255 255 / 0.16);
+        color: white;
+    }
+
+    .home-navbar:not(.is-scrolled) .public-desktop-nav + div a {
+        background-color: rgb(255 255 255 / 0.16);
+    }
+
+    .home-navbar:not(.is-scrolled) > .container-shell > div > button {
+        border-color: rgb(255 255 255 / 0.5);
+        color: white;
+    }
+
+    .home-navbar.is-scrolled {
+        border-color: rgb(237 233 254);
+        background-color: rgb(255 255 255 / 0.98);
+        box-shadow: 0 1px 3px rgb(15 23 42 / 0.08);
+    }
 }

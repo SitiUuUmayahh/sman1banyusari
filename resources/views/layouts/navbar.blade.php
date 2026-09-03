@@ -1,24 +1,24 @@
-<nav x-data="{ open: false }" x-effect="document.body.classList.toggle('overflow-hidden', open)" @keydown.escape.window="open = false" class="relative z-40 border-b border-violet-100 bg-white/95 shadow-sm backdrop-blur">
+<nav x-data="{ open: false, scrolled: window.scrollY > 24 }" x-effect="document.body.classList.toggle('overflow-hidden', open)" @scroll.window="scrolled = window.scrollY > 24" @keydown.escape.window="open = false" @class(['home-navbar' => request()->routeIs('home'), 'relative z-40 border-b border-violet-100 bg-white/95 shadow-sm backdrop-blur' => ! request()->routeIs('home'), 'fixed inset-x-0 top-0 z-40 border-b border-transparent bg-transparent' => request()->routeIs('home')]) :class="{ 'is-scrolled': scrolled }">
     <div class="container-shell">
         <div class="flex h-16 items-center justify-between gap-4 sm:h-20">
             <div class="flex items-center gap-3">
                 <a href="{{ route('home') }}" class="flex items-center gap-3">
                     <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-700 font-bold text-white shadow-sm">S</span>
                     <div class="leading-tight">
-                        <div class="text-sm font-extrabold uppercase tracking-[0.2em] text-slate-900">SMAN 1</div>
-                        <div class="text-[10px] font-medium text-slate-500">Banyusari</div>
+                        <div class="public-brand-name text-sm font-extrabold uppercase tracking-[0.2em] text-slate-900">SMAN 1</div>
+                        <div class="public-brand-subtitle text-[10px] font-medium text-slate-500">Banyusari</div>
                     </div>
                 </a>
             </div>
 
-            <div class="hidden items-center gap-1 md:flex">
-                <a href="{{ route('home') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Beranda</a>
-                <a href="{{ route('school.profile') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Profil</a>
-                <a href="{{ route('news.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Berita</a>
-                <a href="{{ route('informasi.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Informasi</a>
-                <a href="{{ route('gallery.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Galeri</a>
-                <a href="{{ route('achievement.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Prestasi</a>
-                <a href="{{ route('contact.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Kontak</a>
+            <div class="public-desktop-nav hidden items-center gap-1 md:flex">
+                <a href="{{ route('home') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Beranda</a>
+                <a href="{{ route('school.profile') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Profil</a>
+                <a href="{{ route('news.index') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Berita</a>
+                <a href="{{ route('informasi.index') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Informasi</a>
+                <a href="{{ route('gallery.index') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Galeri</a>
+                <a href="{{ route('achievement.index') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Prestasi</a>
+                <a href="{{ route('contact.index') }}" class="public-nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-violet-50 hover:text-violet-800">Kontak</a>
             </div>
 
             <div class="hidden items-center gap-3 md:flex">
