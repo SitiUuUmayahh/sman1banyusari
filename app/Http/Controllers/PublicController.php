@@ -47,7 +47,7 @@ class PublicController extends Controller
                 : 'N/A',
             // Ganti URL ini dengan foto gedung sekolah Anda sendiri.
             // Bisa pakai URL Unsplash, CDN, atau path file lokal di storage/public.
-            'heroImage' => 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85',
+            'heroImage' => asset('images/sman1banyusari.png'),
         ]);
     }
 }
