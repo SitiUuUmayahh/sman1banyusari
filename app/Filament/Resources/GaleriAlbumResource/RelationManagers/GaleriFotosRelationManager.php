@@ -7,6 +7,7 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use App\Models\GaleriFoto;
 use Illuminate\Support\Str;
 
 class GaleriFotosRelationManager extends RelationManager
@@ -88,7 +89,9 @@ class GaleriFotosRelationManager extends RelationManager
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->requiresConfirmation()
+                    ->modalDescription(fn (GaleriFoto $record): string => 'Foto ini akan dihapus secara permanen dari album dan storage.'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

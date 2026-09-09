@@ -52,7 +52,12 @@ class GaleriAlbumResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->requiresConfirmation()
+                    ->modalDescription(fn (GaleriAlbum $record): string => sprintf(
+                        'Album ini berisi %d foto. Menghapus album akan menghapus semua foto di dalamnya secara permanen.',
+                        $record->galeriFotos()->count(),
+                    )),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
