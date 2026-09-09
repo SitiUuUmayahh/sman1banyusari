@@ -145,6 +145,8 @@ pesan          | text     |
 status_kirim   | enum     | terkirim, gagal  
 dikirim_at     | datetime |  
 
+
+
 Relasi Web Absensi  
 KELAS (1) — (N) SISWA : satu kelas punya banyak siswa  
 GURU (1) — (N) JADWAL_PIKET : satu guru punya banyak jadwal piket  
