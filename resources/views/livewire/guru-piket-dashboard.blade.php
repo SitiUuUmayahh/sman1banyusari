@@ -72,12 +72,23 @@
                     wire:model.live.debounce.250ms="search"
                     placeholder="Ketik nama atau NIS"
                     autocomplete="off"
+                    @disabled($selectedSiswaId)
                     class="mt-1.5 min-h-14 block w-full rounded-xl border-2 border-slate-300 bg-white px-4 text-base font-semibold text-slate-900 placeholder:text-slate-400 focus:border-sky-600 focus:ring-sky-600"
                 >
+                @if ($selectedStudent)
+                    <div class="mt-2 flex items-center justify-between gap-3 rounded-lg border-2 border-emerald-200 bg-emerald-50 p-3" role="status">
+                        <div class="min-w-0">
+                            <p class="text-xs font-bold uppercase tracking-wide text-emerald-700">Siswa terpilih</p>
+                            <p class="truncate text-sm font-extrabold text-emerald-900">{{ $selectedStudent->nama }}</p>
+                            <p class="mt-0.5 text-xs font-semibold text-emerald-800">NIS: {{ $selectedStudent->nis }} &bull; {{ $selectedStudent->kelas?->nama_kelas ?? '-' }}</p>
+                        </div>
+                        <button type="button" wire:click="clearSelectedStudent" class="shrink-0 rounded-md border border-emerald-300 bg-white px-3 py-2 text-xs font-extrabold text-emerald-800 hover:bg-emerald-100">Ganti</button>
+                    </div>
+                @endif
                 @if ($search && $selectedSiswaId === null && $students->isNotEmpty())
-                    <div class="absolute z-10 mt-1 max-h-64 w-full overflow-y-auto rounded-xl border-2 border-slate-200 bg-white shadow-lg">
+                    <div class="absolute left-0 right-0 z-10 mt-1 max-h-64 overflow-y-auto rounded-xl border-2 border-slate-200 bg-white shadow-lg">
                         @foreach ($students as $student)
-                            <button type="button" wire:click="selectStudent({{ $student->id }})" class="block min-h-14 w-full border-b border-slate-100 px-4 py-3 text-left last:border-b-0 hover:bg-sky-50">
+                            <button type="button" wire:key="student-option-{{ $student->id }}" wire:click="selectStudent({{ $student->id }})" class="block min-h-14 w-full border-b border-slate-100 px-4 py-3 text-left last:border-b-0 hover:bg-sky-50">
                                 <span class="block text-sm font-extrabold text-slate-900">{{ $student->nama }}</span>
                                 <span class="mt-0.5 block text-xs font-medium text-slate-500">NIS {{ $student->nis }} &bull; {{ $student->kelas?->nama_kelas ?? '-' }}</span>
                             </button>
@@ -103,7 +114,7 @@
                 </div>
             </div>
 
-            <button type="submit" wire:loading.attr="disabled" wire:target="saveManualAttendance" class="min-h-14 w-full rounded-xl bg-sky-700 px-5 py-4 text-base font-extrabold text-white shadow-sm transition hover:bg-sky-800 disabled:cursor-not-allowed disabled:opacity-60">
+            <button type="submit" wire:loading.attr="disabled" wire:target="saveManualAttendance" @disabled(! $selectedSiswaId) class="min-h-14 w-full rounded-xl bg-sky-700 px-5 py-4 text-base font-extrabold text-white shadow-sm transition hover:bg-sky-800 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500 disabled:opacity-100">
                 <span wire:loading.remove wire:target="saveManualAttendance">Simpan Absensi Manual</span>
                 <span wire:loading wire:target="saveManualAttendance">Menyimpan...</span>
             </button>

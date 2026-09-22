@@ -42,6 +42,9 @@ class GuruPiketDashboard extends Component
                 ->limit(20)
                 ->get(),
             'students' => $this->studentOptions(),
+            'selectedStudent' => $this->selectedSiswaId
+                ? Siswa::with('kelas')->find($this->selectedSiswaId)
+                : null,
         ]);
     }
 
@@ -101,8 +104,17 @@ class GuruPiketDashboard extends Component
 
     public function selectStudent(int $studentId): void
     {
-        $this->selectedSiswaId = $studentId;
-        $this->search = (string) Siswa::findOrFail($studentId)->nama;
+        $student = Siswa::query()
+            ->where('status', 'aktif')
+            ->findOrFail($studentId);
+
+        $this->selectedSiswaId = $student->id;
+        $this->search = $student->nama;
+    }
+
+    public function clearSelectedStudent(): void
+    {
+        $this->reset(['search', 'selectedSiswaId']);
     }
 
     public function updatedSearch(): void
