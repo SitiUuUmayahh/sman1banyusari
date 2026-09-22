@@ -119,7 +119,7 @@ class AbsensiPageController extends Controller
 
     public function piket(): View
     {
-        return view('absensi.page', ['title' => 'Piket']);
+        return view('absensi.piket');
     }
 
     public function admin(): View
