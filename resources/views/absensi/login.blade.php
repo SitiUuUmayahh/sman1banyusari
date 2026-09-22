@@ -52,7 +52,6 @@
                     <input type="checkbox" name="remember" class="h-3 w-3 rounded border-slate-300 text-sky-700 focus:ring-sky-600">
                     Ingat saya
                 </label>
-                <span class="font-semibold text-sky-700">Lupa password?</span>
             </div>
             <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-md bg-sky-700 px-4 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-sky-800">Masuk <span aria-hidden="true">&rarr;</span></button>
         </form>
