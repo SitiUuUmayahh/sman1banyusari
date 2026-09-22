@@ -11,6 +11,7 @@ Route::middleware('web')->prefix('absensi')->name('absensi.')->group(function ()
 
     Route::middleware('auth:siswa')->group(function () {
         Route::get('/scan', [AbsensiPageController::class, 'scan'])->name('scan');
+        Route::post('/scan', [AbsensiPageController::class, 'processScan'])->name('scan.process');
     });
 
     Route::middleware('auth:guru')->group(function () {
