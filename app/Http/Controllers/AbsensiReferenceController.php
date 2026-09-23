@@ -8,6 +8,8 @@ use App\Models\Kelas;
 use App\Models\QrGerbang;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class AbsensiReferenceController extends Controller
@@ -71,8 +73,6 @@ class AbsensiReferenceController extends Controller
         ]);
     }
 
-    use Illuminate\Support\Str;
-    use Illuminate\Validation\Rule;
     public function jadwalStore(Request $request): RedirectResponse
     {
         JadwalPiket::create($this->validatedSchedule($request));
