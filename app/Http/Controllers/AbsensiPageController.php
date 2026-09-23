@@ -124,7 +124,7 @@ class AbsensiPageController extends Controller
 
     public function admin(): View
     {
-        return view('absensi.page', ['title' => 'Admin']);
+        return app(\App\Http\Controllers\AbsensiAdminController::class)->dashboard();
     }
 
     public function laporan(): View
