@@ -25,6 +25,8 @@
                         ['label' => 'Kelola Kelas', 'route' => 'absensi.admin.kelas.index', 'pattern' => 'absensi.admin.kelas*', 'icon' => 'classes'],
                         ['label' => 'Jadwal Piket', 'route' => 'absensi.admin.jadwal-piket.index', 'pattern' => 'absensi.admin.jadwal-piket*', 'icon' => 'schedule'],
                         ['label' => 'QR Gerbang', 'route' => 'absensi.admin.qr-gerbang.index', 'pattern' => 'absensi.admin.qr-gerbang*', 'icon' => 'gate'],
+                        ['label' => 'Export Laporan', 'route' => 'absensi.admin.laporan', 'pattern' => 'absensi.admin.laporan*', 'icon' => 'report'],
+                        ['label' => 'Log Notifikasi WA', 'route' => 'absensi.admin.notifikasi-wa', 'pattern' => 'absensi.admin.notifikasi-wa*', 'icon' => 'notification'],
                     ];
                 @endphp
                 @foreach ($adminMenu as $item)
@@ -39,6 +41,10 @@
                             <svg class="h-5 w-5 shrink-0 lg:mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15ZM4 5.5v15M8 7h8M8 11h8" /></svg>
                         @elseif ($item['icon'] === 'schedule')
                             <svg class="h-5 w-5 shrink-0 lg:mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path stroke-linecap="round" d="M12 7v5l3 2" /></svg>
+                        @elseif ($item['icon'] === 'report')
+                            <svg class="h-5 w-5 shrink-0 lg:mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 20V4h14v16M8 8h8M8 12h8M8 16h5" /></svg>
+                        @elseif ($item['icon'] === 'notification')
+                            <svg class="h-5 w-5 shrink-0 lg:mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg>
                         @else
                             <svg class="h-5 w-5 shrink-0 lg:mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 9.5 12 4l8 5.5v8A1.5 1.5 0 0 1 18.5 19h-13A1.5 1.5 0 0 1 4 17.5v-8Z" /><path stroke-linecap="round" d="M9 19v-5h6v5" /></svg>
                         @endif

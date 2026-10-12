@@ -5,6 +5,7 @@ use App\Http\Controllers\AbsensiAdminController;
 use App\Http\Controllers\AbsensiPageController;
 use App\Http\Controllers\AbsensiSiswaController;
 use App\Http\Controllers\AbsensiReferenceController;
+use App\Http\Controllers\AbsensiReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('web')->prefix('absensi')->name('absensi.')->group(function () {
@@ -75,6 +76,9 @@ Route::middleware('web')->prefix('absensi')->name('absensi.')->group(function ()
         Route::get('/admin/qr-gerbang/{gate}/edit', [AbsensiReferenceController::class, 'qrEdit'])->middleware('guru.role:admin_tu')->name('admin.qr-gerbang.edit');
         Route::put('/admin/qr-gerbang/{gate}', [AbsensiReferenceController::class, 'qrUpdate'])->middleware('guru.role:admin_tu')->name('admin.qr-gerbang.update');
         Route::delete('/admin/qr-gerbang/{gate}', [AbsensiReferenceController::class, 'qrDestroy'])->middleware('guru.role:admin_tu')->name('admin.qr-gerbang.destroy');
+        Route::get('/admin/laporan', [AbsensiReportController::class, 'laporan'])->middleware('guru.role:admin_tu')->name('admin.laporan');
+        Route::get('/admin/laporan/export', [AbsensiReportController::class, 'export'])->middleware('guru.role:admin_tu')->name('admin.laporan.export');
+        Route::get('/admin/notifikasi-wa', [AbsensiReportController::class, 'notifikasi'])->middleware('guru.role:admin_tu')->name('admin.notifikasi-wa');
         Route::get('/laporan', [AbsensiPageController::class, 'laporan'])
             ->middleware('guru.role:kepsek')
             ->name('laporan');
